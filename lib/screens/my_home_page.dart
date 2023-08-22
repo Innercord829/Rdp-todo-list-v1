@@ -126,7 +126,19 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 16,
                             color: Colors.blue,
                           ), 
-                          hintText: 'Enter you tasks here'
+                          hintText: 'Enter you tasks here',
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+
+                          )
                         ),
                       ),
                     ),
