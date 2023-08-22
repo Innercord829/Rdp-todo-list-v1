@@ -13,15 +13,25 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+
+  //table_calendar config
   CalendarFormat _calendarFormat = CalendarFormat.week;
   DateTime _focusDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
 
-  final List<String> tasks = <String>['test'];
-
+  final List<String> tasks = <String>[];
   final List<bool> checkboxes = List.generate(8, (index) => false);
   
+  //removes keyboard after enter, or lost focus on text field
+  FocusNode _textFieldFocusNode = FocusNode();
 
+  TextEditingController nameController = TextEditingController();
+
+
+
+
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +107,36 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 )
               ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      child: TextField(
+                        controller: nameController,
+                        focusNode: _textFieldFocusNode,
+                        style: TextStyle(fontSize: 18),
+                        maxLength: 320,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(16),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          labelText: 'Add To-Do List Item',
+                          labelStyle: TextStyle(
+                            fontSize: 16,
+                            color: Colors.blue,
+                          ), 
+                          hintText: 'Enter you tasks here'
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                onPressed: null, 
+                child: Text('Add To-Do Item')
+                )
             ],
           ),
         ),
